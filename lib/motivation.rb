@@ -16,16 +16,20 @@ module Motivation
     true
   end
 
-  def checks
+  def unwrapped_checks
     self.class.checks
   end
 
-  def each_check(&block)
-    wrapped_checks.each &block
+  def checks
+    unwrapped_checks.collect { |c| WrappedCheck.new(c, self) }
   end
 
-  def wrapped_checks
-    checks.collect { |c| WrappedCheck.new(c, self) }
+  def each_check(&block)
+    checks.each &block
+  end
+
+  def next_check
+    checks.detect { |c| ! c.completed? }
   end
 
   def completions

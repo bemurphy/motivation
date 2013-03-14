@@ -136,6 +136,21 @@ describe Motivation do
     end
   end
 
+  describe "getting the next check" do
+    it "returns the first wrapped check that is incomplete" do
+      project.name = "name"
+      project.subdomain = nil
+      expect(motivation.next_check.name.to_s).to eq "subdomain_setup"
+      project.subdomain = "subdomain"
+      expect(motivation.next_check.name.to_s).to eq "local_method_step"
+    end
+
+    it "returns nil if all checks are complete" do
+      motivation.method_check = true
+      expect(motivation.next_check).to be_nil
+    end
+  end
+
 end
 
 describe Motivation::WrappedCheck, "#translation_key" do
