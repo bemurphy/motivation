@@ -64,7 +64,7 @@ just call methods, including privates, in your ProfileMotivation class itself.
 This was heavily inspired by [progression](https://github.com/mguterl/progression).
 
 I switched primarily because I wanted to use specific classes rather than inject into
-and existing model namespace, and extend the DSL some.
+an existing model namespace, and extend the DSL some.
 
 ## Contributing
 
