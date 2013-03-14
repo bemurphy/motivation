@@ -155,7 +155,7 @@ end
 
 describe Motivation::WrappedCheck, "#translation_key" do
   let(:check) { OpenStruct.new }
-  let(:motivation) { stub(:motivation, :key => "project") }
+  let(:motivation) { stub(:motivation, :translation_key => "project") }
   let(:wrapped_check) { Motivation::WrappedCheck.new(check, motivation) }
 
   before do

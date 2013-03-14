@@ -159,7 +159,7 @@ module Motivation
     def translation_key
        [
         "motivations",
-        @motivation.key,
+        @motivation.translation_key,
         status_key,
         @check.name
       ].join('.')
