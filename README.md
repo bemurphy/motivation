@@ -1,7 +1,12 @@
 # Motivation
 
 Simple DSL for use in classes to motivate a user towards a goal.  An example
-goal might be "Complete Profile", or "Setup Project"
+goal might be "Complete Profile", or "Setup Project".
+
+This was heavily inspired by [progression](https://github.com/mguterl/progression).
+
+I switched primarily because I wanted to use specific classes rather than inject into
+an existing model namespace, and extend the DSL some.
 
 ## Installation
 
@@ -18,6 +23,8 @@ Or install it yourself as:
     $ gem install motivation
 
 ## Usage
+
+Create a motivational class and `include Motivation`.
 
 ```ruby
 require "motivation"
@@ -59,13 +66,6 @@ motivation.complete_tweets_added
 Note that the `check` and `complete` blocks will not tolerate early returns, you
 will get a `LocalJumpError`.  If you want to simplify your DSL definitions, you can
 just call methods, including privates, in your ProfileMotivation class itself.
-
-## Acknowledgements
-
-This was heavily inspired by [progression](https://github.com/mguterl/progression).
-
-I switched primarily because I wanted to use specific classes rather than inject into
-an existing model namespace, and extend the DSL some.
 
 ## Contributing
 
