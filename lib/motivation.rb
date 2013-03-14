@@ -160,8 +160,8 @@ module Motivation
        [
         "motivations",
         @motivation.translation_key,
-        status_key,
-        @check.name
+        @check.name,
+        status_key
       ].join('.')
     end
     private

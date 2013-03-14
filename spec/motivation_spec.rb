@@ -171,16 +171,16 @@ describe Motivation::WrappedCheck, "#translation_key" do
   end
 
   context "for a incomplete step" do
-    it "generates a key like motivations.project.incomplete.step_name" do
+    it "generates a key like motivations.project.step_name.incomplete" do
       check.flag = false
-      expect(wrapped_check.translation_key).to eq "motivations.project.incomplete.foo_bar"
+      expect(wrapped_check.translation_key).to eq "motivations.project.foo_bar.incomplete"
     end
   end
 
   context "for a completed step" do
-    it "generates a key like motivations.project.complete.step_name" do
+    it "generates a key like motivations.project.step_name.complete" do
       check.flag = true
-      expect(wrapped_check.translation_key).to eq "motivations.project.complete.foo_bar"
+      expect(wrapped_check.translation_key).to eq "motivations.project.foo_bar.complete"
     end
   end
 end

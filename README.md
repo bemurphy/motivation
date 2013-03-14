@@ -88,10 +88,10 @@ Note it currently does not include i18n, you can pass the generated keys straigh
 your helper (such as `t` in Rails views).
 
 ```
-motivation.next_check.translation_key #=> "motivations.profile.incomplete.setup_twitter"
+motivation.next_check.translation_key #=> "motivations.profile.setup_twitter.incomplete"
 ```
 
-The key format is `motivations.motivation_subject.[incomplete|complete].step_name`
+The key format is `motivations.motivation_subject.step_name.[incomplete|complete]`
 
 ## Contributing
 
