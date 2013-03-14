@@ -104,8 +104,8 @@ en:
   motivations:
     project:
       name:
-        default: "Your project is named!"
-        complete: "Add a project name"
+        default: "Add a project name"
+        complete: "Your project is named!"
       support_email:
         default: "Setup a support email address"
         complete: "Your support email is ready to go"
