@@ -156,18 +156,23 @@ module Motivation
     # or for a completed step
     #   'motivations.project.complete.signed_up'
     #
-    def translation_key
+    def translation_key(end_key = status_key)
        [
         "motivations",
         @motivation.translation_key,
         @check.name,
-        status_key
+        end_key
       ].join('.')
     end
+
+    def default_translation_key
+      translation_key(:default)
+    end
+
     private
 
     def status_key
-      completed? ? "complete" : "incomplete"
+      completed? ? "complete" : "default"
     end
   end
 

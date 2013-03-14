@@ -171,9 +171,9 @@ describe Motivation::WrappedCheck, "#translation_key" do
   end
 
   context "for a incomplete step" do
-    it "generates a key like motivations.project.step_name.incomplete" do
+    it "generates a key like motivations.project.step_name.default" do
       check.flag = false
-      expect(wrapped_check.translation_key).to eq "motivations.project.foo_bar.incomplete"
+      expect(wrapped_check.translation_key).to eq "motivations.project.foo_bar.default"
     end
   end
 
@@ -183,4 +183,15 @@ describe Motivation::WrappedCheck, "#translation_key" do
       expect(wrapped_check.translation_key).to eq "motivations.project.foo_bar.complete"
     end
   end
+
+  context "when an end_key is passed" do
+    it "uses the end_key as the terminal position" do
+      expect(wrapped_check.translation_key(:foobar)).to eq "motivations.project.foo_bar.foobar"
+    end
+  end
+
+  it "provides #default_translation_key as a convienience" do
+    expect(wrapped_check.default_translation_key).to eq "motivations.project.foo_bar.default"
+  end
+
 end

@@ -88,10 +88,33 @@ Note it currently does not include i18n, you can pass the generated keys straigh
 your helper (such as `t` in Rails views).
 
 ```
-motivation.next_check.translation_key #=> "motivations.profile.setup_twitter.incomplete"
+motivation.next_check.translation_key #=> "motivations.profile.setup_twitter.default"
 ```
 
-The key format is `motivations.motivation_subject.step_name.[incomplete|complete]`
+The key format is `motivations.motivation_subject.step_name.[default|complete]`.  Note you can
+call `default_translation_key` as a shortcut to always grab the default translation key.  This is
+useful if you want to always have the same messaging regardless of completion status.  If you
+wish to provide alternate messaging based on completion, fill our your local data with both `default`
+and `complete` keys.
+
+Here's an example locale that would match the motivation key structure:
+
+```yaml
+en:
+  motivations:
+    project:
+      name:
+        default: "Your project is named!"
+        complete: "Add a project name"
+      support_email:
+        default: "Setup a support email address"
+        complete: "Your support email is ready to go"
+      users_added:
+        default: "Now go sign up some users"
+        complete: "Awesome, you've got users!"
+```
+
+
 
 ## Contributing
 
