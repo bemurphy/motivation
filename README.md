@@ -20,15 +20,19 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-class Profile = Struct.new(:twitter_name, :age, :tweets) do
+require "motivation"
+
+Profile = Struct.new(:twitter_name, :age, :tweets) do
   attr_accessor :cached_tweets_count
 end
 
 class ProfileMotivation
+  include Motivation
+
   subject :profile
 
   # Create a simple check.  This defines the predicate `#setup_twitter?`
-  check(:setup_twitter) { profile.name.to_s.length > 0 }
+  check(:setup_twitter) { profile.twitter_name.to_s.length > 0 }
 
   # Define a step by name then create a check
   step :enter_age
@@ -39,13 +43,13 @@ class ProfileMotivation
   # will define a method `#complete_tweets_added
   step :tweets_added
   check { cached_tweets_count.to_i > 0 || profile.tweets.length > 0 }
-  complete { profile.cached_tweets_count = profiles.tweets.length.to_i }
+  complete { profile.cached_tweets_count = profile.tweets.length.to_i }
 end
 
 profile = Profile.new(nil, 42, [1,2,3])
 motivation = ProfileMotivation.new(profile)
 motivation.setup_twitter? #=> false
-motivation.twitter_name = "JohnDoe"
+profile.twitter_name = "JohnDoe"
 motivation.setup_twitter? #=> true
 
 motivation.complete_tweets_added
