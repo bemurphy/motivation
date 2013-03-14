@@ -1,4 +1,4 @@
-# Motivation
+# Motivation [![Code Climate](https://codeclimate.com/github/bemurphy/motivation.png)](https://codeclimate.com/github/bemurphy/motivation)
 
 Simple DSL for use in classes to motivate a user towards a goal.  An example
 goal might be "Complete Profile", or "Setup Project".
