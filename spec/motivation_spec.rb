@@ -151,6 +151,16 @@ describe Motivation do
     end
   end
 
+  describe "retrieving a check with #[]" do
+    it "returns a check by name" do
+      check = motivation[:name_setup]
+      expect(check.name).to eq :name_setup
+
+      check = motivation[:users_signed_up]
+      expect(check.name).to eq :users_signed_up
+    end
+  end
+
 end
 
 describe Motivation::WrappedCheck, "#translation_key" do
