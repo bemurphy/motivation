@@ -76,6 +76,23 @@ motivation.each_check do |check|
 end
 ```
 
+You can get the next incomplete check, this is useful if you want to render
+a message in a header, for instance.
+
+```ruby
+motivation.next_check
+```
+
+Motivation checks are wrapped to provide a tranlation key suitable for use with i18n.
+Note it currently does not include i18n, you can pass the generated keys straight to
+your helper (such as `t` in Rails views).
+
+```
+motivation.next_check.translation_key #=> "motivations.profile.incomplete.setup_twitter"
+```
+
+The key format is `motivations.motivation_subject.[incomplete|complete].step_name`
+
 ## Contributing
 
 1. Fork it
