@@ -67,6 +67,15 @@ Note that the `check` and `complete` blocks will not tolerate early returns, you
 will get a `LocalJumpError`.  If you want to simplify your DSL definitions, you can
 just call methods, including privates, in your ProfileMotivation class itself.
 
+You can also iterate over checks for a motivation instance:
+
+```ruby
+motivation.each_check do |check|
+  puts check.name
+  puts check.completed?
+end
+```
+
 ## Contributing
 
 1. Fork it
