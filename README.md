@@ -29,6 +29,7 @@ end
 class ProfileMotivation
   include Motivation
 
+  # Aliases profile to subject for clarity in steps
   subject :profile
 
   # Create a simple check.  This defines the predicate `#setup_twitter?`
