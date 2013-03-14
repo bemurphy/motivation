@@ -50,7 +50,7 @@ class ProfileMotivation
   # check is heavy and you want to use a cached result.  This
   # will define a method `#complete_tweets_added
   step :tweets_added
-  check { cached_tweets_count.to_i > 0 || profile.tweets.length > 0 }
+  check { profile.cached_tweets_count.to_i > 0 || profile.tweets.length > 0 }
   complete { profile.cached_tweets_count = profile.tweets.length.to_i }
 end
 
