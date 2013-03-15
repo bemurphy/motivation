@@ -39,6 +39,13 @@ class ProfileMotivation
   # Aliases profile to subject for clarity in steps
   subject :profile
 
+  # Provides an #applies? check.  use this block to
+  # house logic if you want to selectively apply the
+  # motivation.  Note this doesn't impact checks at
+  # all, it's so you have a central place for checking
+  # if you wish.  true by default
+  applies { profile.age <= 14 }
+
   # Create a simple check.  This defines the predicate `#setup_twitter?`
   check(:setup_twitter) { profile.twitter_name.to_s.length > 0 }
 
