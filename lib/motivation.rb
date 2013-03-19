@@ -32,6 +32,10 @@ module Motivation
     checks.detect { |c| ! c.completed? }
   end
 
+  def complete?
+    ! next_check
+  end
+
   def [](check_name)
     checks.detect { |c| c.name == check_name }
   end

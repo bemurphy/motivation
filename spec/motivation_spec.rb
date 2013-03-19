@@ -151,6 +151,18 @@ describe Motivation do
     end
   end
 
+  describe "checking if all checks are complete" do
+    it "returns false if there's an incomplete check" do
+      motivation.method_check = false
+      expect(motivation).to_not be_complete
+    end
+
+    it "returns true if all checks are complete" do
+      motivation.method_check = true
+      expect(motivation).to be_complete
+    end
+  end
+
   describe "retrieving a check with #[]" do
     it "returns a check by name" do
       check = motivation[:name_setup]
